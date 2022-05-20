@@ -2,10 +2,10 @@
   position: relative;
   height: 300vh;
 }
-nav{
-  position: fixed;
+.navbar {
+  position: sticky;
   top: 0;
-  height: 100px;
+  height: 75px;
   width: 100%;
 }
 .section .section-center {
@@ -149,7 +149,7 @@ nav{
 .flyaway {
   font-size: 100px;
   text-transform: uppercase;
-  color: black;
+  color: white;
   font-weight: 700;
   display: flex;
   justify-content: center;
@@ -157,6 +157,6 @@ nav{
   width: center;
   position: relative;
 }
-strong{
-  color: orange;
+.super_float{
+  z-index: 100;
 }
