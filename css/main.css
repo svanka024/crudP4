@@ -156,7 +156,12 @@
   align-items: center;
   width: center;
   position: relative;
+  padding: 14%;
 }
 .super_float {
   z-index: 100;
+}
+.titel{
+  position: absolute;
+  bottom: 0;
 }
