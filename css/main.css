@@ -2,7 +2,12 @@
   position: relative;
   height: 300vh;
 }
-
+nav{
+  position: fixed;
+  top: 0;
+  height: 100px;
+  width: 100%;
+}
 .section .section-center {
   position: absolute;
   top: 50%;
@@ -27,7 +32,7 @@
   right: 0;
   bottom: 0;
   top: 0;
-  background: rgba(47, 103, 177, 0.6);
+  background: rgba(47, 103, 177, 0.2);
 }
 
 .booking-form {
@@ -142,7 +147,16 @@
   width: 100%;
 }
 .flyaway {
-  color: rgba(255, 255, 255, 0.8);
-  justify-items: center;
+  font-size: 100px;
+  text-transform: uppercase;
+  color: black;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
   align-items: center;
+  width: center;
+  position: relative;
+}
+strong{
+  color: orange;
 }
