@@ -1,6 +1,6 @@
 .section {
   position: relative;
-  height: 100vh;
+  height: 300vh;
 }
 
 .section .section-center {
@@ -15,6 +15,7 @@
 #booking {
   font-family: "Montserrat", sans-serif;
   background-image: url("../img/background.jpg");
+  background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
