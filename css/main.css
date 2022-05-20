@@ -182,4 +182,7 @@
 .dropdown-menu {
   display: block !important;
 }
-
+.landen{
+  display: flex;
+  flex-direction: row;
+}
