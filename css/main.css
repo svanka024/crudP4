@@ -138,11 +138,11 @@
   color: rgba(255, 255, 255, 0.8);
 }
 .conttop{
-  height: 200vh;
+  height: 100px;
   width: 100%;
 }
 .flyaway{
   color: white;
-  justify-content: center;
+  justify-items: center;
   align-items: center;
 }
