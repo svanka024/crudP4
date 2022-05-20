@@ -2,10 +2,6 @@
   position: relative;
   height: 300vh;
 }
-.sectionlogin {
-  position: relative;
-  height: 90vh;
-}
 .navbar {
   position: sticky;
   top: 0;
@@ -170,16 +166,15 @@
   bottom: 0;
 }
 .loginform {
-  z-index: 40;
+  z-index: 100;
   align-items: center;
   position: center;
   justify-content: center;
   height: 50%;
   width: auto;
   padding: 250px;
-  padding-left: 645px;
+  padding-left: 650px;
 }
 .dropdown-menu {
   display: block !important;
 }
-
