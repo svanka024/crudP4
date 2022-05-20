@@ -39,7 +39,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="pictures.html"><strong>login</strong></a>
+        <a class="navbar-brand text-info" href="login.html"><strong>login</strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -50,93 +50,28 @@
         </div>
       </div>
     </nav>
-    <div id="booking" class="section">
-      <div class="conttop">
-        <div class="titel">
-          <h1 class="flyaway">fly<strong class="text-info">away</strong></h1>
+    <div id="booking" class="section ">
+      <div class="loginform">
+      <form class="dropdown-menu p-4">
+        <div class="mb-3">
+          <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
         </div>
-      </div>
-      <div class="section-center">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-7 col-md-push-5">
-              <div class="booking-cta">
-                <h1>maak uw reservering</h1>
-                <p>beste ....</p>
-              </div>
-            </div>
-            <div class="col-md-4 col-md-pull-7">
-              <div class="booking-form">
-                <form>
-                  <div class="form-group">
-                    <span class="form-label">uw bestemming</span>
-                    <input
-                      class="form-control"
-                      type="text"
-                      placeholder="Enter a destination or hotel name"
-                    />
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <span class="form-label">Check In</span>
-                        <input class="form-control" type="date" required />
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <span class="form-label">Check out</span>
-                        <input class="form-control" type="date" required />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <span class="form-label">Rooms</span>
-                        <select class="form-control">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                        </select>
-                        <span class="select-arrow"></span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <span class="form-label">Adults</span>
-                        <select class="form-control">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                        </select>
-                        <span class="select-arrow"></span>
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group">
-                        <span class="form-label">Children</span>
-                        <select class="form-control">
-                          <option>0</option>
-                          <option>1</option>
-                          <option>2</option>
-                        </select>
-                        <span class="select-arrow"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-btn">
-                    <button class="submit-btn">Check availability</button>
-                  </div>
-                </form>
-              </div>
-            </div>
+        <div class="mb-3">
+          <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+            <label class="form-check-label" for="dropdownCheck2">
+              Remember me
+            </label>
           </div>
         </div>
-      </div>
-      <div>
-        
-      </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </form>
+    </div>
     </div>
   </body>
 </html>
