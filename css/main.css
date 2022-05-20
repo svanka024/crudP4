@@ -159,9 +159,22 @@
   padding: 14%;
 }
 .super_float {
-  z-index: 100;
+  z-index: 50;
 }
-.titel{
+.titel {
   position: absolute;
   bottom: 0;
+}
+.loginform {
+  z-index: 100;
+  align-items: center;
+  position: center;
+  justify-content: center;
+  height: 50%;
+  width: auto;
+  padding: 250px;
+  padding-left: 650px;
+}
+.dropdown-menu {
+  display: block !important;
 }
