@@ -15,4 +15,4 @@ $stmt->execute();
 $result = $stmt->fetchAll();
 ?>
 
-<h1>hoi</h1>
+<h1></h1>
