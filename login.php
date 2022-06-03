@@ -73,21 +73,34 @@ if(isset($_POST['username']) && isset($_POST['password'])){
       </div>
     </nav>
     <div id="booking" class="sectionlogin">
-      <div class="loginform">
-      <form class="dropdown-menu p-4">
-        <div class="mb-3">
-          <form action="login.php" method="post">
-          <label type="text" id="usernme" name="username" class="form-label">Email adress</label>
-          <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+    <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+              <div class="card bg-white text-info" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+      
+                  <div class="mb-md-5 mt-md-4 pb-5">
+      
+                    <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                    <p class="text-info-50 mb-5">Please enter your login and password!</p>
+                    <form action="login.php" method="post">
+                    <div class="form-outline form-white mb-4" id="loginForm">
+                      <input type="text" id="usernme" name="username" class="form-control form-control-lg" value=""/>
+                      <label class="form-label" for="typeEmailX">username</label>
+                    </div>
+      
+                    <div class="form-outline form-white mb-4">
+                      <input type="password" id="password" name="password" class="form-control form-control-lg" value=""/>
+                      <label class="form-label" for="typePasswordX">Password</label>
+                    </div>      
+                    <input class="btn btn-primary btn-lg px-5" type="submit" value="login"/>     
+                    </form> 
+                  </div>      
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-          <input type="password" id="password" name="password" class="form-control" placeholder="Password">
-        </div>
-
-        <input type="submit" class="btn btn-primary" value="login"></input>
-      </form>
-    </div>
     </div>
   </body>
 </html>
