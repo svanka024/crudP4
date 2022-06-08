@@ -233,7 +233,7 @@
 
 .cards{
   height: auto;
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
