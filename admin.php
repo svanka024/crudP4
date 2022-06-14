@@ -42,8 +42,8 @@ $result = $stmt->fetchAll();
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
             <div class="centered">
-              <a href="database.php"><button type="button" class="btn btn-info btn-lg">vluchten beheren</button></a>
-              <a href="gebruikers.php"><button type="button" class="btn btn-info btn-lg">gebruikers beheren</button></a>
+              <a href="database.php"><button type="button" class="btn btn-info btn-lg">Vluchten beheren</button></a>
+              <a href="gebruikers.php"><button type="button" class="btn btn-info btn-lg">Gebruikers beheren</button></a>
             </div>
           </div>
         </div>
