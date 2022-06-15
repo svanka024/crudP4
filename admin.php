@@ -33,7 +33,7 @@ $result = $stmt->fetchAll();
       <div class="text-center">
           <h1>admin pagina 
                 <?php if(isset($_SESSION['username'])){?>
-                    <p><?php echo "welcome " . $_SESSION['username']; ?> <a href="logout.php"> uitloggen</a></p>
+                    <p><?php echo "welcome " . $_SESSION['username']; ?> <a href="logout.php"> uitloggenn</a></p>
                     <?php
                     }  else {
                         header("location: login.php"); 
