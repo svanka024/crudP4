@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>fly away</title>
+    <script src="script.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
       rel="stylesheet"
@@ -18,10 +19,46 @@
     <link type="text/css" rel="stylesheet" href="css/main.css" />
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg bg-white super_float">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.png" alt="" width="160" height="160">
+          </a>
+        <a class="navbar-brand text-info" href="index.html"> <strong>home</strong></a>
+        <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-info" href="information.html">information</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-info" href="aboutus.html">about us</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-info" href="contact.html">contact</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-info" href="fotos.html">fotos</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-info" href="login.php">login</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
     <div id="booking" class="section">
       <div class="conttop">
         <div>
-          <h1 class="flyaway">fly away</h1>
+          <h1 class="flyaway">fly<strong class="text-info">away</strong></h1>
         </div>
       </div>
       <div class="section-center">
@@ -30,7 +67,8 @@
             <div class="col-md-7 col-md-push-5">
               <div class="booking-cta">
                 <h1>maak uw reservering</h1>
-                <p>beste ....</p>
+                <p>beste reiziger welkom bij Flyaway wij boeken leuke vakantie reizen voor u.
+                van spanje tot australie. hiernaast kunt u uw ideale reis samenstellen en boeken.</p>
               </div>
             </div>
             <div class="col-md-4 col-md-pull-7">
@@ -102,9 +140,49 @@
           </div>
         </div>
       </div>
-      <div>
-        
+      <div class="container landen">
+        <div class="card" style="width: 18rem;">
+        <img src="img/spanje.img" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text"><h1>spanje</h1>
+            zin in een warme vakantie aan het strand of in een strad. 
+            misschien is spanje dan jou perfecte vakantie bestemming.</p>
+        </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+        <img src="img/ibiza.img" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text"><h1>ibiza</h1>
+            toe aan een warme strand vakantie? boek dan een weekje naar ibiza en geniet van de zon.
+          met vrienden of familie.</p>
+        </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+        <img src="img/noorway.img" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text"><h2>noorwegen</h2>
+            bent u meer toe aan een avonduurlijke vakantie in noorwegen? noorwegen heeft mooie gebergten en mooie 
+          plaatselijke dorpjes</p>
+        </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+        <img src="img/france.img" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text"><h1>frankrijk</h1>
+            te veel keuze stress? ga dan gewoon naar frankrijk. zee/strand, bergen, liefdes rijs
+          frankrijk bied alles. en lekker dicht bij huis. berijkbaar met auto of vliegtuig.</p>
+        </div>  
       </div>
     </div>
+    </div>`
+    <footer class="sticky-footer">
+      <ul class="ul1">
+        <li><a class="text-info">info@FlyAway.com</a></li>
+        <li><a class="text-info">06 16436963</a></li>
+        <li><a class="text-info">instagram: fly.away</a></li>
+        <li><a class="text-info">facebook: fly.away</a></li>
+      </ul>
+      <p class="text-info">made by Jasper and Sven</p>
+    </footer>
   </body>
 </html>
