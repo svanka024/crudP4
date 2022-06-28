@@ -33,7 +33,7 @@ $result = $stmt->fetchAll();
       <div class="text-center">
           <h1>admin pagina 
                 <?php if(isset($_SESSION['username'])){?>
-                    <p><?php echo "welcome " . $_SESSION['username']; ?> <a href="logout.php"> uitloggenn</a></p>
+                    <p><?php echo "welcome " . $_SESSION['username']; ?> <a href="logout.php"> uitloggen</a></p>
                     <?php
                     }  else {
                         header("location: login.php"); 
@@ -42,7 +42,7 @@ $result = $stmt->fetchAll();
       <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-white">
             <div class="centered">
-              <a href="database.php"><button type="button" class="btn btn-info btn-lg">Vluchten beheren</button></a>
+              <a href="berichten.php"><button type="button" class="btn btn-info btn-lg">Berichten beheren</button></a>
               <a href="gebruikers.php"><button type="button" class="btn btn-info btn-lg">Gebruikers beheren</button></a>
             </div>
           </div>
