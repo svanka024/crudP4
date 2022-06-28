@@ -16,35 +16,35 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <link type="text/css" rel="stylesheet" href="../css/main.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white super_float">
       <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="img/logo.png" alt="" width="160" height="160">
+            <img src="../img/logo.png" alt="" width="160" height="160">
           </a>
-        <a class="navbar-brand text-info" href="index.html">home</a>
+        <a class="navbar-brand text-info" href="../index.html">home</a>
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="information.html">information</a>
+        <a class="navbar-brand text-info" href="../information.html">information</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="aboutus.html">about us</a>
+        <a class="navbar-brand text-info" href="../aboutus.html">about us</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="contact.html"><strong>Contact</strong></a>
+        <a class="navbar-brand text-info" href="php/contact.php"><strong>Contact</strong></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="fotos.html">fotos</a>
+        <a class="navbar-brand text-info" href="../fotos.html">fotos</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="php/login.php">login</a>
+        <a class="navbar-brand text-info" href="login.php">login</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,22 +55,39 @@
         </div>
       </div>
     </nav>
-    <div id="booking" class="section">
-      <div class="conttop">
-        <div>
-          <h1 class="flyaway">fly<strong class="text-info">away</strong></h1>
+    <div id="booking" class="sectionlogin">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-white text-info" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+    
+                <div class="mb-md-5 mt-md-4 pb-5">
+    
+                  <h2 class="fw-bold mb-2 text-uppercase">Contact</h2>
+                  <p class="text-info-50 mb-5">plaats hier jou vraag! binnen 2 uur een mail terug</p>
+                  <form action="" method="post">
+                  <div class="form-outline form-white mb-4" id="loginForm">
+                    <input type="text" id="naam" name="naam" class="form-control form-control-lg" value=""/>
+                    <label class="form-label" for="typeEmailX">Naam</label>
+                  </div>
+    
+                  <div class="form-outline form-white mb-4">
+                    <input type="email" id="email" name="email" class="form-control form-control-lg" value=""/>
+                    <label class="form-label" for="typePasswordX">E-mail</label>
+                  </div>   
+                  <div class="form-outline form-white mb-4">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="bericht" rows="3"></textarea>
+                    <label class="form-label" for="typePasswordX">Bericht</label>
+                  </div>     
+                  <input class="btn btn-primary btn-lg px-5" type="submit" value="versturen"/>     
+                  </form> 
+                </div>      
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-  
     </div>
-    <footer class="sticky-footer">
-      <ul class="ul1">
-        <li><a class="text-info">info@FlyAway.com</a></li>
-        <li><a class="text-info">06 16436963</a></li>
-        <li><a class="text-info">instagram: fly.away</a></li>
-        <li><a class="text-info" href="voorwaarden.html">algemene voorwaarden</a></li>
-      </ul>
-      <p class="text-info">made by Jasper and Sven</p>
-    </footer>
   </body>
 </html>
