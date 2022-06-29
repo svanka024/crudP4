@@ -8,11 +8,14 @@ $stmt->bindParam(":username", $_POST['username']);
 $stmt->bindParam(":password", $_POST['password']);
 $stmt->execute();
 
-$result = $stmt->fetchAll();
+$result = $stmt->fetch();
 
  if(count($result) > 0){
- $_SESSION["username"] = $_POST['username'];
- header('Location: admin.php');
+ $_SESSION["username"] = $result["username"];
+ if($result["isAdmin"] > 0){
+  header('Location: admin.php');
+ }
+ 
  exit();
  
  } else {
@@ -42,7 +45,7 @@ $result = $stmt->fetchAll();
           <a class="navbar-brand" href="#">
             <img src="../img/logo.png" alt="" width="160" height="160">
           </a>
-        <a class="navbar-brand text-info" href="../index.html">home</a>
+        <a class="navbar-brand text-info" href="../index.php">home</a>
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
