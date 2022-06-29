@@ -2,24 +2,26 @@
 include_once "connection.php";
 
 if(isset($_POST['username']) && isset($_POST['password'])){
-    $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(":username", $_POST['username']);
-    $stmt->bindParam(":password", $_POST['password']);
-    $stmt->execute();
+ $sql = "SELECT * FROM admin WHERE username = :username AND password = :password";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(":username", $_POST['username']);
+$stmt->bindParam(":password", $_POST['password']);
+$stmt->execute();
 
-    $result = $stmt->fetchAll();
+$result = $stmt->fetchAll();
 
-    if(count($result) > 0){
-        $_SESSION["username"] = $_POST['username'];
-        header('Location: admin.php');
-    exit();
-        
-    } else {
-        echo "gebruikersnaam en of wachtwoord onjuist";
-    }
+ if(count($result) > 0){
+ $_SESSION["username"] = $_POST['username'];
+ header('Location: admin.php');
+ exit();
+ 
+ } else {
+     echo "gebruikersnaam en of wachtwoord onjuist";
+ }
 } 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -92,7 +94,8 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                       <input type="password" id="password" name="password" class="form-control form-control-lg" value=""/>
                       <label class="form-label" for="typePasswordX">Password</label>
                     </div>      
-                    <input class="btn btn-primary btn-lg px-5" type="submit" value="login"/>     
+                    <input class="btn btn-primary btn-lg px-5" type="submit" value="login"/>  
+                    <p><a href="aanmelden.php">account aanmaken!</a></p>   
                     </form> 
                   </div>      
                 </div>
