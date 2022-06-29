@@ -24,7 +24,7 @@
           <a class="navbar-brand" href="#">
             <img src="img/logo.png" alt="" width="160" height="160">
           </a>
-        <a class="navbar-brand text-info" href="index.html"> <strong>home</strong></a>
+        <a class="navbar-brand text-info" href="index.php"> <strong>home</strong></a>
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,6 +49,10 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand text-info" href="php/login.php">login</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-info" href="php/logout.php">logout</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -80,17 +84,17 @@
                 <form>
                   <div class="dropdown">
                   <select class="btn btn-light dropdown-toggle" name="cars" id="cars">
-                    <option value="spanje">spanje</option>
-                    <option value="griekenland">griekenland</option>
-                    <option value="monaco">monaco</option>
-                    <option value="turkije">turkije</option>
-                    <option value="italie">italie</option>
-                    <option value="mexico">mexico</option>
-                    <option value="portugal">portugal</option>
-                    <option value="amerika">amerika</option>
-                    <option value="frankrijk">frankrijk</option>
-                    <option value="japan">japan</option>
-                    <option value="china">china</option>
+                    <option value="spanje">Barcelona</option>
+                    <option value="griekenland">Parijs</option>
+                    <option value="monaco">Sidney</option>
+                    <option value="turkije">Lissabon</option>
+                    <option value="italie">Rome</option>
+                    <option value="mexico">Istanbul</option>
+                    <option value="portugal">Madrid</option>
+                    <option value="amerika">Los Angeles</option>
+                    <option value="frankrijk">New York</option>
+                    <option value="japan">Munchen</option>
+                    <option value="china">Las Vegas</option>
                     </select>
                   </div>
                   <div class="row">
