@@ -33,25 +33,23 @@ $result = $stmt->fetchAll();
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">naam</th>
-      <th scope="col">e-mail</th>
-      <th scope="col">bericht</th>
+      <th scope="col">img</th>
+      <th scope="col">username</th>
+      <th scope="col">password</th>
     </tr>
   </thead>
   <tbody>
   <?php
 foreach($result as $res){ ?>
     <tr>
-      <td><?php echo $res['ID'];?></td>
-      <td><?php echo $res['naam'];?></td>
-      <td><?php echo $res['email'];?></td>
-      <td><?php echo $res['bericht'];?></td>
-      <td> <a href="delgebruiker.php?id=<?php echo $res["ID"];?>">delete</a> </td>
+      <th><img ></th>
+      <td><?php echo $res['username'];?></td>
+      <td><?php echo $res['password'];?></td>
     </tr>
     <?php
 }
-?>  </tbody>
+?>
+  </tbody>
 </table>
 </body>
 </html>
