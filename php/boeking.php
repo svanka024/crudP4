@@ -16,39 +16,43 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <link type="text/css" rel="stylesheet" href="../css/main.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-white super_float">
       <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="img/logo.png" alt="" width="160" height="160">
+            <img src="../img/logo.png" alt="" width="160" height="160">
           </a>
-        <a class="navbar-brand text-info" href="index.php">home</a>
+        <a class="navbar-brand text-info" href="../index.php">home</a>
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="boeking.html"><strong>booking</strong></a>
+        <a class="navbar-brand text-info" href="boeking.php"><strong>booking</strong></a>
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="information.html">information</a>
+        <a class="navbar-brand text-info" href="../information.html">information</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="php/aboutus.php">about us</a>
+        <a class="navbar-brand text-info" href="aboutus.php">about us</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="php/contact.php">Contact</a>
+        <a class="navbar-brand text-info" href="contact.php">Contact</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="fotos.html">fotos</a>
+        <a class="navbar-brand text-info" href="../fotos.html">fotos</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="php/login.php">login</a>
+        <a class="navbar-brand text-info" href="login.php">login</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-info" href="logout.php">logout</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
