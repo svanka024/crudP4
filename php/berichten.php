@@ -9,7 +9,7 @@ if(isset($_SESSION['username'])){?>
     header("location: login.php");
 } 
 
-$sql = "SELECT * FROM admin";
+$sql = "SELECT * FROM contact";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 
@@ -47,7 +47,7 @@ foreach($result as $res){ ?>
       <td><?php echo $res['naam'];?></td>
       <td><?php echo $res['email'];?></td>
       <td><?php echo $res['bericht'];?></td>
-      <td> <a href="delgebruiker.php?id=<?php echo $res["ID"];?>">delete</a> </td>
+      <td> <a href="delbericht.php?id=<?php echo $res["ID"];?>">delete</a> </td>
     </tr>
     <?php
 }
