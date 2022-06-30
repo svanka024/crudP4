@@ -1,4 +1,6 @@
 <?php
+
+function (is_user_logged_in()){
 include_once "connection.php";
 if(isset($_SESSION['username'])){?>
   <div class="text-center">
@@ -8,6 +10,7 @@ if(isset($_SESSION['username'])){?>
 }  else {
     header("location: login.php");
 } 
+};
 
 $sql = "SELECT * FROM admin";
 $stmt = $conn->prepare($sql);
