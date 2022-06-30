@@ -1,3 +1,21 @@
+<?php 
+include_once "connection.php";
+if(isset($_POST["submit"])){
+
+    $sql = "INSERT INTO contact
+              (naam, email, bericht)
+              VALUES
+              (:naam, :email, :bericht)
+      ";
+      $stmt = $conn->prepare($sql);
+      $stmt->bindParam(':naam', $_POST['naam']);
+      $stmt->bindParam(':email', $_POST['email']);
+      $stmt->bindParam(':bericht', $_POST['bericht']);
+      $stmt->execute();
+      header("location: contactgeslaagd.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,7 +42,7 @@
           <a class="navbar-brand" href="#">
             <img src="../img/logo.png" alt="" width="160" height="160">
           </a>
-        <a class="navbar-brand text-info" href="../index.html">home</a>
+        <a class="navbar-brand text-info" href="../index.php">home</a>
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +50,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="../aboutus.html">about us</a>
+        <a class="navbar-brand text-info" href="aboutus.php">about us</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -79,8 +97,9 @@
                   <div class="form-outline form-white mb-4">
                     <textarea class="form-control" id="exampleFormControlTextarea1" name="bericht" rows="3"></textarea>
                     <label class="form-label" for="typePasswordX">Bericht</label>
+                    <p><a href="review.php">schrijf hier een review</a></p>
                   </div>     
-                  <input class="btn btn-primary btn-lg px-5" type="submit" value="versturen"/>     
+                  <input class="btn btn-primary btn-lg px-5" type="submit" value="Submit" name="submit"/>     
                   </form> 
                 </div>      
               </div>
