@@ -1,12 +1,98 @@
-<?php include_once "connection.php";
+<!-- 
+// dit stuk haalt de data op
+// $sql = "SELECT * FROM flights";
+// $stmt = $conn->prepare($sql);
+// $stmt->execute();
 
-//dit stuk haalt de data op
+//               $filter = $_GET['zoekopdracht'];
+ 
+//               $kandidaat_flights = $flights;
+//               $flights = [];
+  
+//               foreach($kandidaat_flights as $flight) {
+//                 foreach($flight['eindbestemming'] as $tag) {
+//                   if ($tag == $filter) {
+//                     array_push($flights, $flight);
+//                   }
+//                 }
+//               }
+               -->
+
+<?php
+
+include_once "connection.php";
+
 $sql = "SELECT * FROM flights";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-//haal alle data op en knal die in een variabele genaam results
-$results = $stmt->fetchAll();
-?><!DOCTYPE html>
+
+if (isset($_POST['search'])) {
+
+     $Name = $_POST['search'];
+
+     $Query = "SELECT eindbestemming FROM search WHERE eindbestemming LIKE '%$einbestemming%' LIMIT 11";
+
+     $ExecQuery = MySQLi_query($con, $Query);};
+
+     echo '
+  <ul>
+     ';
+
+     while ($Result = ($ExecQuery)) {};
+         ?>
+
+     <li onclick='fill("<?php echo $Result['eindbestemming']?>")
+     <a>
+
+         <?php echo $Result['eindbestemming']; 
+
+         ?>
+     </li></a>
+
+<script>
+
+function fill(Value) {
+   //Assigning value to "search" div in "search.php" file.
+   $('#search').val(Value);
+   //Hiding "display" div in "search.php" file.
+   $('#display').hide();
+}
+$(document).ready(function() {
+   //On pressing a key on "Search box" in "search.php" file. This function will be called.
+   $("#search").keyup(function() {
+       //Assigning search box value to javascript variable named as "name".
+       var eindbestemming = $('#search').val();
+       //Validating, if "name" is empty.
+       if (eindbestemming == "") {
+           //Assigning empty value to "display" div in "search.php" file.
+           $("#display").html("");
+       }
+       //If name is not empty.
+       else {
+           //AJAX is called.
+           $.ajax({
+               //AJAX type is "Post".
+               type: "POST",
+               //Data will be sent to "ajax.php".
+               url: "boeking.php",
+               //Data, that will be sent to "ajax.php".
+               data: {
+                   //Assigning value of "name" into "search" variable.
+                   search: eindbestemming
+               },
+               //If result found, this funtion will be called.
+               success: function(html) {
+                   //Assigning result to "display" div in "search.php" file.
+                   $("#display").html(html).show();
+               }
+           });
+       }
+   });
+});
+
+</script>
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -65,27 +151,11 @@ $results = $stmt->fetchAll();
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <form action="reizen.php" method="GET" class="d-flex" role="search">
-            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="zoekopdracht">
-            <input class="btn btn-outline-success" name="zoekopdracht" type="submit">Search</input>
-          </form>
-
-          <?php
-              
-              $filter = $_GET['zoekopdracht'];
- 
-              $kandidaat_boeking = $boeking;
-              $boeking = [];
-  
-              foreach($kandidaat_boeking as $boeking) {
-                foreach($boeking['eindbestemming'] as $eindbestemming) {
-                  if ($eindbestemming == $filter) {
-                    array_push($boeking, $boeking);
-                  }
-                }
-              }
-              
-              ?>
+        <input type="text" id="search" placeholder="Search" />
+   <br>
+   <b>Ex: </b><i>barcelona, parijs, sidney, lissabon, rome, istanbul, madrid, los angles, new york, munchen, las vegas</i>
+   <br />
+   <div id="display"></div>
 
       </div>
     </nav>

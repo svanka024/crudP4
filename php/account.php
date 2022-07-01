@@ -34,16 +34,16 @@ $result = $stmt->fetch();
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">img</th>
       <th scope="col">username</th>
       <th scope="col">password</th>
+      <th scope="col">flights</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th><img ></th>
       <td><?php echo $result['username'];?></td>
       <td><?php echo $result['password'];?></td>
+      <td><?php echo $result['flights'];?></td>
     </tr>
   </tbody>
 </table>
