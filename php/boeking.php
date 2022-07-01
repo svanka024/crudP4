@@ -65,8 +65,8 @@ $results = $stmt->fetchAll();
           <span class="navbar-toggler-icon"></span>
         </button>
           
-        <form action="flights.php" class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form action="flights.php" hethod="GET" class="d-flex" role="search">
+            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="zoekopdracht">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
 
