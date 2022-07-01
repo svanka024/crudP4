@@ -1,6 +1,4 @@
 <?php
-
-function (is_user_logged_in){
 include_once "connection.php";
 if(isset($_SESSION['username'])){?>
   <div class="text-center">
@@ -10,13 +8,13 @@ if(isset($_SESSION['username'])){?>
 }  else {
     header("location: login.php");
 } 
-};
 
-$sql = "SELECT * FROM admin";
+$sql = "SELECT * FROM admin WHERE username = :username";
 $stmt = $conn->prepare($sql);
+$stmt->bindParam(':username', $_SESSION['username']);
 $stmt->execute();
 
-$result = $stmt->fetchAll();
+$result = $stmt->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,16 +40,11 @@ $result = $stmt->fetchAll();
     </tr>
   </thead>
   <tbody>
-  <?php
-foreach($result as $res){ ?>
     <tr>
       <th><img ></th>
-      <td><?php echo $res['username'];?></td>
-      <td><?php echo $res['password'];?></td>
+      <td><?php echo $result['username'];?></td>
+      <td><?php echo $result['password'];?></td>
     </tr>
-    <?php
-}
-?>
   </tbody>
 </table>
 </body>
