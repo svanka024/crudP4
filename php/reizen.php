@@ -48,12 +48,12 @@ foreach($result as $res){ ?>
       <td><?php echo $res['beginbestemming'];?></td>
       <td><?php echo $res['eindbestemming'];?></td>
       <td><?php echo $res['maatschappij'];?></td>
-      <td> <a href="delgebruiker.php?id=<?php echo $res["ID"];?>">delete</a> </td>
+      <td> <a href="delreis.php?id=<?php echo $res["ID"];?>">delete</a> </td>
     </tr>
     <?php
 }
 ?>
-  <td> <a href="addgebruiker.php">toevoegen</a></td>
+  <td> <a href="addreizen.php">toevoegen</a></td>
   </tbody>
 </table>
 </body>
