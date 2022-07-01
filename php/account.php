@@ -1,6 +1,6 @@
 <?php
 
-function (is_user_logged_in()){
+function (is_user_logged_in){
 include_once "connection.php";
 if(isset($_SESSION['username'])){?>
   <div class="text-center">
