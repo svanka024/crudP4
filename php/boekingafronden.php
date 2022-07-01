@@ -1,20 +1,20 @@
 <?php 
-include_once "connection.php";
-if(isset($_POST["submit"])){
+ include_once "connection.php";
+if(isset($_GET["id"])){
 
-    $sql = "INSERT INTO contact
-              (naam, email, bericht)
+    $sql = "INSERT INTO boekingen
+              (reisID, userID)
               VALUES
-              (:naam, :email, :bericht)
+              (:reisID, :userID)
       ";
       $stmt = $conn->prepare($sql);
-      $stmt->bindParam(':naam', $_POST['naam']);
-      $stmt->bindParam(':email', $_POST['email']);
-      $stmt->bindParam(':bericht', $_POST['bericht']);
+      $stmt->bindParam(':reisID', $_GET['id']);
+      $stmt->bindParam(':userID', $_SESSION['ID']);
       $stmt->execute();
-      header("location: contactgeslaagd.php");
+      header("location: account.php");
   }
-?>
+var_dump($_SESSION);
+?>  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +46,7 @@ if(isset($_POST["submit"])){
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="boeking.php">booking</a>
+        <a class="navbar-brand text-info" href="boeking.php"><strong>booking</strong></a>
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -58,7 +58,7 @@ if(isset($_POST["submit"])){
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="php/contact.php"><strong>Contact</strong></a>
+        <a class="navbar-brand text-info" href="contact.php">Contact</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -74,7 +74,6 @@ if(isset($_POST["submit"])){
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         </div>
       </div>
     </nav>
@@ -87,25 +86,8 @@ if(isset($_POST["submit"])){
     
                 <div class="mb-md-5 mt-md-4 pb-5">
     
-                  <h2 class="fw-bold mb-2 text-uppercase">Contact</h2>
-                  <p class="text-info-50 mb-5">plaats hier jou vraag! binnen 2 uur een mail terug</p>
-                  <form action="" method="post">
-                  <div class="form-outline form-white mb-4" id="loginForm">
-                    <input type="text" id="naam" name="naam" class="form-control form-control-lg" value=""/>
-                    <label class="form-label" for="typeEmailX">Naam</label>
-                  </div>
-    
-                  <div class="form-outline form-white mb-4">
-                    <input type="email" id="email" name="email" class="form-control form-control-lg" value=""/>
-                    <label class="form-label" for="typePasswordX">E-mail</label>
-                  </div>   
-                  <div class="form-outline form-white mb-4">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" name="bericht" rows="3"></textarea>
-                    <label class="form-label" for="typePasswordX">Bericht</label>
-                    <p><a href="review.php">schrijf hier een review</a></p>
-                  </div>     
-                  <input class="btn btn-primary btn-lg px-5" type="submit" value="Submit" name="submit"/>     
-                  </form> 
+                  <h2 class="fw-bold mb-2 text-uppercase">Bedankt voor uw Boeking!</h2>  
+              
                 </div>      
               </div>
             </div>

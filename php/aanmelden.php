@@ -3,14 +3,16 @@ include_once "connection.php";
 var_dump($_POST);
 if(isset($_POST["submit"])){
 
+    $defaultValue = 0;
     $sql = "INSERT INTO admin
-              (username, password)
+              (username, password, admin)
               VALUES
-              (:username, :password)
+              (:username, :password, :admin)
       ";
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':username', $_POST['username']);
       $stmt->bindParam(':password', $_POST['password']);
+      $stmt->bindParam(':admin', $defaultValue);
       $stmt->execute();
       header("location: login.php");
   }
@@ -67,10 +69,6 @@ if(isset($_POST["submit"])){
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
         </div>
       </div>
     </nav>

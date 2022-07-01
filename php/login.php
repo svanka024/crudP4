@@ -11,9 +11,12 @@ $stmt->execute();
 $result = $stmt->fetch();
 
  if(count($result) > 0){
- $_SESSION["username"] = $result["username"];
+  $_SESSION["username"] = $result["username"];
+ $_SESSION["ID"] = $result["ID"];
  if($result["isAdmin"] > 0){
   header('Location: admin.php');
+ } else {
+  header('Location: ../index.php');
  }
  
  exit();
@@ -77,10 +80,7 @@ $result = $stmt->fetch();
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+
         </div>
       </div>
     </nav>

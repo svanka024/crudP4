@@ -64,11 +64,29 @@ $results = $stmt->fetchAll();
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+
+        <form action="reizen.php" method="GET" class="d-flex" role="search">
+            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="zoekopdracht">
+            <input class="btn btn-outline-success" name="zoekopdracht" type="submit">Search</input>
           </form>
-        </div>
+
+          <?php
+              
+              $filter = $_GET['zoekopdracht'];
+ 
+              $kandidaat_boeking = $boeking;
+              $boeking = [];
+  
+              foreach($kandidaat_boeking as $boeking) {
+                foreach($boeking['eindbestemming'] as $eindbestemming) {
+                  if ($eindbestemming == $filter) {
+                    array_push($boeking, $boeking);
+                  }
+                }
+              }
+              
+              ?>
+
       </div>
     </nav>
     <div id="booking" class="section">
@@ -88,7 +106,13 @@ $results = $stmt->fetchAll();
                 <div class="text-center">
                   <h5 class="fw-bolder">van <?php echo $res['beginbestemming'];?> naar <?php echo $res['eindbestemming'];?></h5>
                   <p class="card-text"><?php echo $res['maatschappij'];?></p>  
-                  <a href="#" class="btn btn-primary">Boek</a>      
+                  <?php 
+ // als session bekend is, dan laat je die knop zien
+                    if(isset($_SESSION['ID'])){
+
+                  ?>
+                  <a href="boekingafronden.php?id=<?php echo $res['ID']?>" class="btn btn-primary" name="submit">Boek</a>   
+                 <?php   } ?>
                 </div>
               </div>
             </div>
