@@ -18,79 +18,46 @@
 //               }
                -->
 
+
+<!-- // include_once "connection.php";
+
+// $sql = "SELECT * FROM flights";
+// $stmt = $conn->prepare($sql);
+// $stmt->execute(); -->
+
 <?php
 
-include_once "connection.php";
+$con = new PDO("mysql:host=localhost;flights=Codeflix",'root','');
 
-$sql = "SELECT * FROM flights";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
+if (isset($_POST["submit"])) {
+  $str = $_POST["search"];
+  $sth = $con->prepare("SELECT * FROM 'search' WHERE eindbestemming = '$str'");
 
-if (isset($_POST['search'])) {
+  $sth->setFetchMode(PDO:: FETCH_OBJ);
+  $sth->execute();
 
-     $Name = $_POST['search'];
+  if($row = $sth->fetch()){
+    ?>
+    <br><br><br>
+    <table>
+      <tr>
+        <th>eindbestemming</th>
+      </tr>
+      <tr>
+        <td><?php echo $row->eindbestemming; ?></td>
 
-     $Query = "SELECT eindbestemming FROM search WHERE eindbestemming LIKE '%$einbestemming%' LIMIT 11";
-
-     $ExecQuery = MySQLi_query($con, $Query);};
-
-     echo '
-  <ul>
-     ';
-
-     while ($Result = ($ExecQuery)) {};
-         ?>
-
-     <li onclick='fill("<?php echo $Result['eindbestemming']?>")
-     <a>
-
-         <?php echo $Result['eindbestemming']; 
-
-         ?>
-     </li></a>
-
-<script>
-
-function fill(Value) {
-   //Assigning value to "search" div in "search.php" file.
-   $('#search').val(Value);
-   //Hiding "display" div in "search.php" file.
-   $('#display').hide();
+      </tr>
+  </table>
+<?php
 }
-$(document).ready(function() {
-   //On pressing a key on "Search box" in "search.php" file. This function will be called.
-   $("#search").keyup(function() {
-       //Assigning search box value to javascript variable named as "name".
-       var eindbestemming = $('#search').val();
-       //Validating, if "name" is empty.
-       if (eindbestemming == "") {
-           //Assigning empty value to "display" div in "search.php" file.
-           $("#display").html("");
-       }
-       //If name is not empty.
-       else {
-           //AJAX is called.
-           $.ajax({
-               //AJAX type is "Post".
-               type: "POST",
-               //Data will be sent to "ajax.php".
-               url: "boeking.php",
-               //Data, that will be sent to "ajax.php".
-               data: {
-                   //Assigning value of "name" into "search" variable.
-                   search: eindbestemming
-               },
-               //If result found, this funtion will be called.
-               success: function(html) {
-                   //Assigning result to "display" div in "search.php" file.
-                   $("#display").html(html).show();
-               }
-           });
-       }
-   });
-});
 
-</script>
+else{
+  echo "u kunt deze eindbestemming helaas niet bij ons boeken";
+}
+
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -151,11 +118,11 @@ $(document).ready(function() {
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <input type="text" id="search" placeholder="Search" />
-   <br>
-   <b>Ex: </b><i>barcelona, parijs, sidney, lissabon, rome, istanbul, madrid, los angles, new york, munchen, las vegas</i>
-   <br />
-   <div id="display"></div>
+        <form method="post">
+        <label>search</lable>
+        <input type="text" name="search">
+        <input type="submit" name="submit">
+</form>
 
       </div>
     </nav>
