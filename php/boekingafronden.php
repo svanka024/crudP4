@@ -1,12 +1,22 @@
-<?php include_once "connection.php";
+<?php 
+ include_once "connection.php";
+if(isset($_GET["id"])){
 
-//dit stuk haalt de data op
-$sql = "SELECT * FROM flights";
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-//haal alle data op en knal die in een variabele genaam results
-$results = $stmt->fetchAll();
-?><!DOCTYPE html>
+    $sql = "INSERT INTO boekingen
+              (reisID, userID)
+              VALUES
+              (:reisID, :userID)
+      ";
+      $stmt = $conn->prepare($sql);
+      $stmt->bindParam(':reisID', $_GET['id']);
+      $stmt->bindParam(':userID', $_SESSION['ID']);
+      $stmt->execute();
+      header("location: account.php");
+  }
+var_dump($_SESSION);
+?>  
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -64,72 +74,26 @@ $results = $stmt->fetchAll();
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
-        <form action="reizen.php" method="GET" class="d-flex" role="search">
-            <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="zoekopdracht">
-            <input class="btn btn-outline-success" name="zoekopdracht" type="submit">Search</input>
-          </form>
-
-          <?php
-              
-              $filter = $_GET['zoekopdracht'];
- 
-              $kandidaat_boeking = $boeking;
-              $boeking = [];
-  
-              foreach($kandidaat_boeking as $boeking) {
-                foreach($boeking['eindbestemming'] as $eindbestemming) {
-                  if ($eindbestemming == $filter) {
-                    array_push($boeking, $boeking);
-                  }
-                }
-              }
-              
-              ?>
-
-      </div>
-    </nav>
-    <div id="booking" class="section">
-      <div class="conttop">
-        <div>
-          <h1 class="flyaway">fly<strong class="text-info">away</strong></h1>
         </div>
       </div>
-      <div
-          class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
-        >
-        <?php foreach($results as $res){   ?>
-
-          <div class="col mb-5">
-            <div class="card h-100">
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <h5 class="fw-bolder">van <?php echo $res['beginbestemming'];?> naar <?php echo $res['eindbestemming'];?></h5>
-                  <p class="card-text"><?php echo $res['maatschappij'];?></p>  
-                  <?php 
- // als session bekend is, dan laat je die knop zien
-                    if(isset($_SESSION['ID'])){
-
-                  ?>
-                  <a href="boekingafronden.php?id=<?php echo $res['ID']?>" class="btn btn-primary" name="submit">Boek</a>   
-                 <?php   } ?>
-                </div>
+    </nav>
+    <div id="booking" class="sectionlogin">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card bg-white text-info" style="border-radius: 1rem;">
+              <div class="card-body p-5 text-center">
+    
+                <div class="mb-md-5 mt-md-4 pb-5">
+    
+                  <h2 class="fw-bold mb-2 text-uppercase">Bedankt voor uw Boeking!</h2>  
+              
+                </div>      
               </div>
             </div>
           </div>
-
-    <?php  }   ?>
-    
+        </div>
+      </div>
     </div>
-    </div>
-    <footer class="sticky-footer">
-      <ul class="ul1">
-        <li><a class="text-info">info@FlyAway.com</a></li>
-        <li><a class="text-info">06 16436963</a></li>
-        <li><a class="text-info">instagram: fly.away</a></li>
-        <li><a class="text-info" href="voorwaarden.html">algemene voorwaarden</a></li>
-      </ul>
-      <p class="text-info">made by Jasper and Sven</p>
-    </footer>
   </body>
 </html>
