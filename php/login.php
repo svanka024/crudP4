@@ -11,9 +11,12 @@ $stmt->execute();
 $result = $stmt->fetch();
 
  if(count($result) > 0){
- $_SESSION["username"] = $result["username"];
+  $_SESSION["username"] = $result["username"];
+ $_SESSION["ID"] = $result["ID"];
  if($result["isAdmin"] > 0){
   header('Location: admin.php');
+ } else {
+  header('Location: ../index.php');
  }
  
  exit();

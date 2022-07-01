@@ -3,14 +3,16 @@ include_once "connection.php";
 var_dump($_POST);
 if(isset($_POST["submit"])){
 
+    $defaultValue = 0;
     $sql = "INSERT INTO admin
-              (username, password)
+              (username, password, admin)
               VALUES
-              (:username, :password)
+              (:username, :password, :admin)
       ";
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':username', $_POST['username']);
       $stmt->bindParam(':password', $_POST['password']);
+      $stmt->bindParam(':admin', $defaultValue);
       $stmt->execute();
       header("location: login.php");
   }

@@ -90,7 +90,13 @@ $results = $stmt->fetchAll();
                 <div class="text-center">
                   <h5 class="fw-bolder">van <?php echo $res['beginbestemming'];?> naar <?php echo $res['eindbestemming'];?></h5>
                   <p class="card-text"><?php echo $res['maatschappij'];?></p>  
-                  <a href="#" class="btn btn-primary">Boek</a>      
+                  <?php 
+ // als session bekend is, dan laat je die knop zien
+                    if(isset($_SESSION['ID'])){
+
+                  ?>
+                  <a href="boekingafronden.php?id=<?php $res['ID']?>" class="btn btn-primary">Boek</a>   
+                  <?php   }?>   
                 </div>
               </div>
             </div>
