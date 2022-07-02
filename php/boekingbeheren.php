@@ -9,7 +9,7 @@ if(isset($_SESSION['username'])){?>
     header("location: login.php");
 } 
 
-$sql = "SELECT * FROM admin WHERE username = :username";
+$sql = "SELECT * FROM flights WHERE username = :username";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':username', $_SESSION['username']);
 $stmt->execute();
@@ -35,16 +35,12 @@ $result = $stmt->fetch();
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">username</th>
-      <th scope="col">password</th>
       <th scope="col">flights</th>
       <th scope="col">userid</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><?php echo $result['username'];?></td>
-      <td><?php echo $result['password'];?></td>
       <td><?php echo $result['reisID'];?></td>
       <td><?php echo $result['userID'];?></td>
     </tr>

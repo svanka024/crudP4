@@ -42,6 +42,7 @@ $result = $stmt->fetchAll();
               <a href="gebruikers.php"><button type="button" class="btn btn-info btn-lg">Gebruikers beheren</button></a>
               <a href="reizen.php"><button type="button" class="btn btn-info btn-lg">vluchten beheren</button></a>
               <a href="account.php"><button type="button" class="btn btn-info btn-lg">mijn account</button></a>
+              <a href="boekingbeheren.php"><button type="button" class="btn btn-info btn-lg">boekingen beheren</button></a>
             </div>
           </div>
         </div>
