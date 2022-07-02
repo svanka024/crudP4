@@ -9,11 +9,10 @@ if(isset($_SESSION['username'])){?>
     header("location: login.php");
 } 
 
-$sql = "SELECT admin.*, boekingen.* FROM admin JOIN boekingen ON admin.ID = boekingen.ID WHERE username = :username";
+$sql = "SELECT admin.*, flights.* FROM admin JOIN flights ON admin.ID = flights.IDflights WHERE username = :username";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':username', $_SESSION['username']);
 $stmt->execute();
-
 $result = $stmt->fetch();
 
 ?>
@@ -37,15 +36,14 @@ $result = $stmt->fetch();
     <tr>
       <th scope="col">username</th>
       <th scope="col">password</th>
-      <th scope="col">flights</th>
-      <th scope="col">userid</th>
+      <th scope="col">flightsID</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><?php echo $result['username'];?></td>
       <td><?php echo $result['password'];?></td>
-      <td><?php echo $result['reisID'];?></td>
+      <td><?php echo $result['IDflights'];?></td>
       <td><?php echo $result['userID'];?></td>
     </tr>
   </tbody>
