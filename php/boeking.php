@@ -87,8 +87,7 @@ $results = $stmt->fetchAll();
               <div class="card-body p-4">
                 <div class="text-center">
                   <h5 class="fw-bolder">van <?php echo $res['beginbestemming'];?> naar <?php echo $res['eindbestemming'];?></h5>
-                  <p class="card-text"><?php echo $res['maatschappij'];?></p>  
-                  <a href="#" class="btn btn-primary">Boek</a>      
+                  <p class="card-text"><?php echo $res['maatschappij'];?></p>     
                   <?php 
  // als session bekend is, dan laat je die knop zien
                     if(isset($_SESSION['ID'])){
