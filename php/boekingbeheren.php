@@ -9,11 +9,13 @@ if(isset($_SESSION['username'])){?>
     header("location: login.php");
 } 
 
+
 $sql = "SELECT * FROM boekingen";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 
 $result = $stmt->fetchAll();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +35,7 @@ $result = $stmt->fetchAll();
 <table class="table">
   <thead>
     <tr>
+
       <th scope="col">reis id</th>
       <th scope="col">user id</th>
       <th scope="col">delete</th>
@@ -53,3 +56,4 @@ foreach($result as $res){ ?>
 </table>
 </body>
 </html>
+

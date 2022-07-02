@@ -6,12 +6,16 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 
 
+
 $filter = $_GET['zoekopdracht'];
 $kandidaat_flights = $flights;
 $flights = [];
 
 foreach ($kandidaat_flights as $flight){
+
   foreach ($flight['eindbestemming'] as $tag){
+
+
     if ($tag == $filter) {
       array_push($flights, $flight);
     }

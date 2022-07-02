@@ -8,11 +8,17 @@ $stmt->bindParam(":username", $_POST['username']);
 $stmt->bindParam(":password", $_POST['password']);
 $stmt->execute();
 
-$result = $stmt->fetchAll();
+$result = $stmt->fetch();
 
  if(count($result) > 0){
- $_SESSION["username"] = $_POST['username'];
- header('Location: admin.php');
+  $_SESSION["username"] = $result["username"];
+ $_SESSION["ID"] = $result["ID"];
+ if($result["isAdmin"] > 0){
+  header('Location: admin.php');
+ } else {
+  header('Location: ../index.php');
+ }
+ 
  exit();
  
  } else {
@@ -42,7 +48,11 @@ $result = $stmt->fetchAll();
           <a class="navbar-brand" href="#">
             <img src="../img/logo.png" alt="" width="160" height="160">
           </a>
-        <a class="navbar-brand text-info" href="../index.html">home</a>
+        <a class="navbar-brand text-info" href="../index.php">home</a>
+        <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-info" href="boeking.php">booking</a>
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -50,7 +60,7 @@ $result = $stmt->fetchAll();
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="../aboutus.html">about us</a>
+        <a class="navbar-brand text-info" href="aboutus.php">about us</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -66,10 +76,11 @@ $result = $stmt->fetchAll();
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+        <a class="navbar-brand text-info" href="logout.php">logout</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
         </div>
       </div>
     </nav>

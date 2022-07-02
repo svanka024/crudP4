@@ -1,18 +1,20 @@
 <?php 
 include_once "connection.php";
-
+var_dump($_POST);
 if(isset($_POST["submit"])){
 
+    $defaultValue = 0;
     $sql = "INSERT INTO admin
-              (username, password)
+              (username, password, admin)
               VALUES
-              (:username, :password)
+              (:username, :password, :admin)
       ";
       $stmt = $conn->prepare($sql);
       $stmt->bindParam(':username', $_POST['username']);
       $stmt->bindParam(':password', $_POST['password']);
+      $stmt->bindParam(':admin', $defaultValue);
       $stmt->execute();
-      header("location: àdmin.php");
+      header("location: login.php");
   }
 ?>
 <!DOCTYPE html>
@@ -35,7 +37,11 @@ if(isset($_POST["submit"])){
           <a class="navbar-brand" href="#">
             <img src="../img/logo.png" alt="" width="160" height="160">
           </a>
-        <a class="navbar-brand text-info" href="../index.html">home</a>
+        <a class="navbar-brand text-info" href="../index.php">home</a>
+        <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-info" href="boeking.php">booking</a>
         <button class="navbar-toggler" ty pe="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -43,7 +49,7 @@ if(isset($_POST["submit"])){
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-info" href="../aboutus.html">about us</a>
+        <a class="navbar-brand text-info" href="aboutus.php">about us</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -59,10 +65,10 @@ if(isset($_POST["submit"])){
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+        <a class="navbar-brand text-info" href="logout.php">logout</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
         </div>
       </div>
     </nav>
@@ -77,7 +83,7 @@ if(isset($_POST["submit"])){
       
                     <h2 class="fw-bold mb-2 text-uppercase">account aanmaken!</h2>
                     <p class="text-info-50 mb-5">Please enter your login and password!</p>
-                    <form action="login.php" method="post">
+                    <form action="" method="post">
                     <div class="form-outline form-white mb-4" id="loginForm">
                       <input type="text" id="usernme" name="username" class="form-control form-control-lg" value=""/>
                       <label class="form-label" for="typeEmailX">username</label>
@@ -87,7 +93,7 @@ if(isset($_POST["submit"])){
                       <input type="password" id="password" name="password" class="form-control form-control-lg" value=""/>
                       <label class="form-label" for="typePasswordX">Password</label>
                     </div>      
-                    <input class="btn btn-primary btn-lg px-5" type="submit" value="Aanmaken"/>  
+                    <input class="btn btn-primary btn-lg px-5" name="submit" type="submit" value="Aanmaken"/>  
                     </form> 
                   </div>      
                 </div>
