@@ -1,63 +1,6 @@
-<!-- 
-// dit stuk haalt de data op
-// $sql = "SELECT * FROM flights";
-// $stmt = $conn->prepare($sql);
-// $stmt->execute();
-
-//               $filter = $_GET['zoekopdracht'];
- 
-//               $kandidaat_flights = $flights;
-//               $flights = [];
-  
-//               foreach($kandidaat_flights as $flight) {
-//                 foreach($flight['eindbestemming'] as $tag) {
-//                   if ($tag == $filter) {
-//                     array_push($flights, $flight);
-//                   }
-//                 }
-//               }
-               -->
-
-
-<!-- // include_once "connection.php";
-
-// $sql = "SELECT * FROM flights";
-// $stmt = $conn->prepare($sql);
-// $stmt->execute(); -->
-
 <?php
 
-$con = new PDO("mysql:host=localhost;flights=Codeflix",'root','');
-
-if (isset($_POST["submit"])) {
-  $str = $_POST["search"];
-  $sth = $con->prepare("SELECT * FROM 'search' WHERE eindbestemming = '$str'");
-
-  $sth->setFetchMode(PDO:: FETCH_OBJ);
-  $sth->execute();
-
-  if($row = $sth->fetch()){
-    ?>
-    <br><br><br>
-    <table>
-      <tr>
-        <th>eindbestemming</th>
-      </tr>
-      <tr>
-        <td><?php echo $row->eindbestemming; ?></td>
-
-      </tr>
-  </table>
-<?php
-}
-
-else{
-  echo "u kunt deze eindbestemming helaas niet bij ons boeken";
-}
-
-}
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
