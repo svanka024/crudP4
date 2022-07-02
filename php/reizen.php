@@ -44,11 +44,13 @@ $result = $stmt->fetchAll();
   <?php
 foreach($result as $res){ ?>
     <tr>
-      <td><?php echo $res['IDflights'];?></td>
+
+      <td><?php echo $res['ID'];?></td>
       <td><?php echo $res['beginbestemming'];?></td>
       <td><?php echo $res['eindbestemming'];?></td>
       <td><?php echo $res['maatschappij'];?></td>
-      <td> <a href="delreis.php?id=<?php echo $res["IDflights"];?>">delete</a> </td>
+      <td> <a href="delreis.php?id=<?php echo $res["ID"];?>">delete</a> </td>
+
     </tr>
     <?php
 }

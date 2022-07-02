@@ -9,12 +9,12 @@ if(isset($_SESSION['username'])){?>
     header("location: login.php");
 } 
 
-$sql = "SELECT * FROM flights WHERE username = :username";
+
+$sql = "SELECT * FROM boekingen";
 $stmt = $conn->prepare($sql);
-$stmt->bindParam(':username', $_SESSION['username']);
 $stmt->execute();
 
-$result = $stmt->fetch();
+$result = $stmt->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -35,16 +35,25 @@ $result = $stmt->fetch();
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">flights</th>
-      <th scope="col">userid</th>
+
+      <th scope="col">reis id</th>
+      <th scope="col">user id</th>
+      <th scope="col">delete</th>
     </tr>
   </thead>
   <tbody>
+  <?php
+foreach($result as $res){ ?>
     <tr>
-      <td><?php echo $result['reisID'];?></td>
-      <td><?php echo $result['userID'];?></td>
+      <td><?php echo $res['reisID'];?></td>
+      <td><?php echo $res['userID'];?></td>
+      <td> <a href="delboeking.php?id=<?php echo $res["ID"];?>">delete</a> </td>
     </tr>
+    <?php
+}
+?>
   </tbody>
 </table>
 </body>
 </html>
+

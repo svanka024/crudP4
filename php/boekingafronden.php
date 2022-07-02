@@ -11,9 +11,11 @@ if(isset($_GET["id"])){
       $stmt->bindParam(':reisID', $_GET['id']);
       $stmt->bindParam(':userID', $_SESSION['ID']);
       $stmt->execute();
-      header("location: account.php");
+
+     // header("location: account.php");
   }
-var_dump($_SESSION);
+//var_dump($_SESSION);
+
 ?>  
 
 <!DOCTYPE html>
