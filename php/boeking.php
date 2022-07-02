@@ -1,12 +1,41 @@
 <?php include_once "connection.php";
 
 //dit stuk haalt de data op
+$sql = "SELECT eindbestemming FROM flights";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+
+$flights = [
+  [
+    "eindbestemming"  => "barcelona"
+  ]
+  ];
+
+$filter = $_GET['zoekopdracht'];
+$kandidaat_flights = $flights;
+$flights = [];
+
+foreach ($kandidaat_flights as $flight){
+  foreach ($flight = ['eindbestemming'] as $tag){
+    if ($tag == $filter) {
+      array_push($flights, $flight);
+    }
+  }
+}
+
+?>
+
+<?php include_once "connection.php";
+
+//dit stuk haalt de data op
 $sql = "SELECT * FROM flights";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 //haal alle data op en knal die in een variabele genaam results
 $results = $stmt->fetchAll();
-?><!DOCTYPE html>
+?>
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -64,10 +93,12 @@ $results = $stmt->fetchAll();
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+
+          <form action="boeking.php" method="GET">
+            <input type="text" name="zoekopdracht">
+            <input type="submit">
           </form>
+
         </div>
       </div>
     </nav>
