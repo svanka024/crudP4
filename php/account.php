@@ -40,15 +40,14 @@ $result = $stmt->fetch();
     <tr>
       <th scope="col">username</th>
       <th scope="col">password</th>
-      <th scope="col">flightsID</th>
+      <th scope="col">userID</th>
+      <th scope="col">reisID</th>      
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><?php echo $result['username'];?></td>
       <td><?php echo $result['password'];?></td>
-
-      <td><?php echo $result['ID'];?></td>
       <td><?php echo $result['userID'];?></td>
       <td><?php echo $result['reisID'];?></td>
 
