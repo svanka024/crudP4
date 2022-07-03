@@ -1,28 +1,57 @@
 <?php include_once "connection.php";
 
 //dit stuk haalt de data op
-$sql = "SELECT eindbestemming FROM flights";
+// $sql = "SELECT eindbestemming FROM flights";
+// $stmt = $conn->prepare($sql);
+// $stmt->execute();
+$zoekvraag = "%".$_POST['zoekopdracht']."%";
+
+$sql = "SELECT eindbestemming FROM flights WHERE eindbestemming LIKE :eindbestemming";
+
 $stmt = $conn->prepare($sql);
+
+$stmt->bindParam(':eindbestemming', $zoekvraag);
+
 $stmt->execute();
 
+$mogelijkeEindbestemmingen = $stmt->fetchAll();
+
+if(isset($_POST['submit'])){
+   foreach($zoekvraag as $mogelijkeEindbestemmingen){   ?> 
+
+    <div class="col mb-5">
+      <div class="card h-100">
+        <div class="card-body p-4">
+          <div class="text-center">
+            <h5 class="fw-bolder">van <?php echo $res['beginbestemming'];?> naar <?php echo $res['eindbestemming'];?></h5>
+            <p class="card-text"><?php echo $res['maatschappij'];?></p>     
+            <?php 
+// als session bekend is, dan laat je die knop zien
+              if(isset($_SESSION['ID'])){
+
+            ?>
+            <a href="boekingafronden.php?id=<?php echo $res['ID']?>" class="btn btn-primary" name="submit">Boek</a><?php   
+            }
+} }
+var_dump($zoekvraag);
+// $flights = $stmt->fetchAll();
 
 
-$filter = $_GET['zoekopdracht'];
-$kandidaat_flights = $flights;
-$flights = [];
+// $filter = $_POST['zoekopdracht'];
+// $kandidaat_flights = $flights;
 
-foreach ($kandidaat_flights as $flight){
+// foreach ($kandidaat_flights as $flight){
 
-  foreach ($flight['eindbestemming'] as $tag){
+//   foreach ($flight['eindbestemming'] as $eindbestemming){
 
 
-    if ($tag == $filter) {
-      array_push($flights, $flight);
-    }
-  }
-}
+//     if ($tag == $filter) {
+//       array_push($flights, $flight);
+//     }
+//   }
+// }
 
-?>
+// ?>
 
 <?php include_once "connection.php";
 
@@ -93,9 +122,9 @@ $results = $stmt->fetchAll();
           <span class="navbar-toggler-icon"></span>
         </button>
 
-          <form action="boeking.php" method="GET">
+          <form action="boeking.php" method="POST">
             <input type="text" name="zoekopdracht">
-            <input type="submit">
+            <input type="submit" >
           </form>
 
         </div>
